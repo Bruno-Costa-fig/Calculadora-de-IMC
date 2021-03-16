@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora IMC</title>
+</head>
+<body>
+    <div class="container">
+        
+        <div class="card-body">
+            <h1>Calculadora - IMC</h1>
+            <hr>
+            <form>
+                <div class="input">
+                    <label for="name">Nome:</label>
+                    <input type="text" id="name" placeholder="Ex: Bruno"><br>
+                </div>
+    
+                <div class="input">
+                    <label for="altura">Altura:</label>
+                    <input type="number" id="altura" placeholder="Ex: 1.73"><br>
+                </div>
+    
+                <div class="input">
+                    <label for="peso">Peso:</label>
+                    <input type="number" id="peso" placeholder="Ex: 60"><br>
+                </div>
+    
+                <button id="btn">Calcular</button>
+            </form>
+            <div id="res"><p>O resultado vai aparecer aqui</p></div>
+        </div>
+    </div>
+    <style>
+        
+        .container{
+            color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 40%; 
+            margin: auto;        
+        }
+        div .card-body{
+            background-color: rgb(7, 175, 7);
+            padding: 2rem;
+            border-radius: .8rem;
+            box-shadow: .3rem .3rem .3rem rgba(0, 0,0, 40%);
+        }
+
+        .input {
+            width: 100%;
+            height: 2rem;
+            margin-bottom: 1rem;
+            text-align: center;
+            font-weight: 700;
+            font-size: large;
+        }
+
+        .input input{
+            height: 100%;
+            width: 70%;
+            float: right;
+            border-style: none;
+            border-radius: 2px;
+        }
+
+        #btn{
+            background-color: #ffffff;
+            color: rgb(7, 175, 7);
+            padding: .5rem 0;
+            border-style: none;
+            border-radius: 2px;
+            width: 100%;
+        }
+
+        div#res{
+            color: black;
+            width: 100%;
+            height: 100px;
+            margin-top: 1rem;
+            border-style: none;
+            border-radius: 2px;
+            background-color: #ffffff;
+            text-align: center;
+        }
+    </style>
+    <script>
+
+        const botao = document.getElementById("btn")
+
+        botao.addEventListener("click", function(event){
+            event.preventDefault()
+
+            const name = document.getElementById("name").value;
+            const altura = document.getElementById("altura").value;
+            const peso = document.getElementById("peso").value;
+            const res = document.getElementById("res")
+            
+            // validação
+            if(name !== "" && altura !== "" && peso !== ""){
+                var categoria = ""
+
+                // cálcul do IMC
+                var valorIMC = (peso / (altura * altura)).toFixed(2)
+
+                // definindo a categoria
+                if(valorIMC< 18.5){
+                    categoria = "abaixo do peso ideal."
+                } else if(valorIMC >= 18.5 && valorIMC <= 24.9){
+                    categoria = "com peso ideal, Parabéns!"
+                } else if(valorIMC >= 25 && valorIMC <= 29.9){
+                    categoria = "com sobrepeso."
+                } else if(valorIMC >= 30 && valorIMC <= 39.9){
+                    categoria = "com obesidade grau II."
+                }
+                else if(valorIMC >= 40){
+                    categoria = "com obesidade grau III."
+                }
+
+                // exibindo o resultado
+                res.innerHTML = `<p>${name}, seu IMC é de ${valorIMC}<br>e 
+                você está ${categoria}</p>`;
+
+            } else {
+                res.textContent = "Preencha todos os campos!"
+            }
+        })
+           
+    </script>
+</body>
+</html>
