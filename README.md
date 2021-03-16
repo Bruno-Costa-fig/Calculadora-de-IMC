@@ -1,4 +1,4 @@
-# calculadora-JS
+# Calculadora de IMC - JS
 
  * Este projeto foi criado em 16 de março de 2021 com intuito de treinar e aprimorar meus conhecimentos conhecimentos em Javascript, HTML e CSS.
 
