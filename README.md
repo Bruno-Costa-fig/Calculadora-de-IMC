@@ -12,7 +12,7 @@
 
 ## Imagens do projeto funcionando:
 
-Para ver como o projeto funciona, <a href="https://github.com/Bruno-Costa-fig/Calculadora-de-IMC/tree/main/img-projeto-funcionando">clique aqui</a>.
+Para ver como o projeto funciona, <a href="https://bruno-costa-fig.github.io/Calculadora-de-IMC/">clique aqui</a>.
 
 ## Meus contatos:
 
